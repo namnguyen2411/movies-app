@@ -1,14 +1,16 @@
-import { Button } from '@/shared/components/ui/button'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { publicRoutes } from '@/routes/publicRoutes'
+import Layout from '@/shared/components/Layout'
 
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <div className="flex min-h-svh flex-col items-center justify-center">
-        <Button>Click me</Button>
-      </div>
-    </>
-  )
+  const router = createBrowserRouter([
+    {
+      Component: Layout,
+      children: publicRoutes
+    }
+  ])
+
+  return <RouterProvider router={router} />
 }
 
 export default App
